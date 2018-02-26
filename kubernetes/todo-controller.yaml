@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: todo
+  name: todo-controller
+spec:
+  replicas: 2
+  selector:
+    name: todo
+  template:
+    metadata:
+      labels:
+        name: todo
+    spec:
+      containers:
+      - image: madhuabburu/todo
+        name: todo
+        ports:
+        - containerPort: 8080
+          name: todo
